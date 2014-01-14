@@ -1,14 +1,16 @@
 <?php
 
 class WebUser extends CWebUser {
+    /*
     private $_model = null;
 
     function getRole() {
-       // if($user = $this->getModel()){
+
+        if($user = $this->getModel()){
             // в таблице User есть поле role
             return 'administrator';
-           // return $user->role;
-       // }
+            return $user->role;
+        }
     }
 
     private function getModel(){
@@ -18,4 +20,5 @@ class WebUser extends CWebUser {
         }
         return $this->_model;
     }
+    */
 }

@@ -1,33 +1,27 @@
 <?php
 
-class UserIdentity extends CUserIdentity {
-    // Будем хранить id.
-    protected $_id;
-
-    // Данный метод вызывается один раз при аутентификации пользователя.
-    public function authenticate(){
-        // Производим стандартную аутентификацию, описанную в руководстве.
-        $user = User::model()->find('LOWER(name)=?', array(strtolower($this->username)));
-        if(($user===null) || ($this->password!==$user->password)) {
-            $this->errorCode = self::ERROR_USERNAME_INVALID;
-        } else {
-            // В качестве идентификатора будем использовать id, а не username,
-            // как это определено по умолчанию. Обязательно нужно переопределить
-            // метод getId(см. ниже).
-            $this->_id = $user->id;
-
-            // Далее логин нам не понадобится, зато имя может пригодится
-            // в самом приложении. Используется как Yii::app()->user->name.
-            // realName есть в нашей модели. У вас это может быть name, firstName
-            // или что-либо ещё.
-            $this->username = $user->name;
-
-            $this->errorCode = self::ERROR_NONE;
+class UserIdentity extends CUserIdentity
+{
+    private $_id;
+    public function authenticate()
+    {
+        $record=User::model()->findByAttributes(array('name'=>$this->username));
+        if($record===null)
+            $this->errorCode=self::ERROR_USERNAME_INVALID;
+     //   else if($record->password!==crypt($this->password,$record->password))
+        else if($record->password!==($this->password))
+            $this->errorCode=self::ERROR_PASSWORD_INVALID;
+        else
+        {
+            $this->_id=$record->id;
+            $this->setState('role', $record->role);
+            $this->errorCode=self::ERROR_NONE;
         }
         return !$this->errorCode;
     }
 
-    public function getId(){
+    public function getId()
+    {
         return $this->_id;
     }
 }
