@@ -1,6 +1,6 @@
 <?php
 /* @var $this SiteController */
-
+Yii::trace('tets', 'system.web.CController');
 if(Yii::app()->user->checkAccess('administrator')){
     echo "hello, I'm administrator<hr>";
 }

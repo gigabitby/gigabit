@@ -56,4 +56,9 @@
 </div><!-- page -->
 
 </body>
+<hr>
+<?
+print_r(Yii::app()->db->getStats());
+?>
+<hr>
 </html>

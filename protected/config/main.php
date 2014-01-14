@@ -32,6 +32,19 @@ return array(
 
 	// application components
 	'components'=>array(
+
+
+        'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+
+                array( // -- CWebLogRoute ---------------------------
+                    'class'=>'CWebLogRoute',
+                    'levels'=>'error, warning, trace, profile, info',
+                    'enabled'=>true,
+                ),
+        ),
+    ),
 		'user'=>array(
             'class' => 'WebUser',
 			// enable cookie-based authentication
@@ -62,6 +75,7 @@ return array(
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
+            'enableProfiling' => true,//профелирование sql
 			'connectionString' => 'mysql:host=localhost;dbname=gig',
 			'emulatePrepare' => true,
 			'username' => 'test',
@@ -73,6 +87,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+        /*
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -80,14 +95,16 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
+
 				// uncomment the following to show log messages on web pages
 				/*
 				array(
 					'class'=>'CWebLogRoute',
 				),
 				*/
-			),
-		),
+	//		),
+	//	),
+
 	),
 
 	// application-level parameters that can be accessed
