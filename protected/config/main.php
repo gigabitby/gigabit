@@ -48,7 +48,7 @@ return array(
 		'user'=>array(
             'class' => 'WebUser',
 			// enable cookie-based authentication
-			//'allowAutoLogin'=>true,
+			'allowAutoLogin'=>true,
 		),
         'authManager' => array(
             // Будем использовать свой менеджер авторизации

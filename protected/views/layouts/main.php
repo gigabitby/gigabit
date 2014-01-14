@@ -59,6 +59,10 @@
 <hr>
 <?
 print_r(Yii::app()->db->getStats());
+Yii::app()->session;
+echo('<pre>');
+print_r($_SESSION);
+echo('</pre>');
 ?>
 <hr>
 </html>
