@@ -9,14 +9,19 @@ class ManagerController extends Controller
         );
     }
 
-
     public function accessRules()
     {
+        $this->layout="/layouts/manager";
         return array(
 
             array('allow',
-                'actions'=>array('index'),
+                'actions'=>array('index','Orders'),
                 'roles'=>array('administrator'),
+            ),
+            array('allow',
+                'actions'=>array('login'),
+                //'roles'=>array('guest'),
+                'users'=>array('*'),
             ),
             array('deny',
                 //'actions'=>array('index'),
@@ -29,8 +34,12 @@ class ManagerController extends Controller
 
 
     public function actionIndex(){
-        echo('система');
-        $this->layout="/layouts/manager";
+
+        $this->render('index', array('main'=>'ffjwflbfiqbhiwebfhjbehkjbfhi'));
+    }
+
+    public function actionOrders(){
+
         $this->render('index', array('main'=>'ffjwflbfiqbhiwebfhjbehkjbfhi'));
 
 
