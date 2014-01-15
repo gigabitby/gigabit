@@ -8,7 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
-
+    'sourceLanguage'=>'ru',
+    'language'=>'ru',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -47,6 +48,7 @@ return array(
     ),
 		'user'=>array(
             'class' => 'WebUser',
+
 			// enable cookie-based authentication
 			//'allowAutoLogin'=>true,
 		),

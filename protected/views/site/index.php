@@ -4,6 +4,14 @@ Yii::trace('tets', 'system.web.CController');
 if(Yii::app()->user->checkAccess('administrator')){
     echo "hello, I'm administrator<hr>";
 }
+if(Yii::app()->user->checkAccess('moderator')){
+    echo "hello, I'm moderator<hr>";
+}
+
+if(Yii::app()->user->checkAccess('remove_public')){
+    echo "operation remove_public<hr>";
+}
+
 $this->pageTitle=Yii::app()->name;
 ?>
 

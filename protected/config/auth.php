@@ -33,4 +33,16 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
+
+    "remove_public" => array(
+        "type"        => CAuthItem::TYPE_OPERATION,
+        "description" => "Удаление публикации",
+        'bizRule' => null,
+        'data' => null,
+        'children' => array(
+            'administrator',          // позволим модератору всё, что позволено пользователю
+        ),
+    ),
+
+
 );
