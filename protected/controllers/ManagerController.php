@@ -9,9 +9,13 @@ class ManagerController extends Controller
         );
     }
 
+    public function init(){
+        $this->layout="/layouts/manager";
+    }
+
+
     public function accessRules()
     {
-        $this->layout="/layouts/manager";
         return array(
 
             array('allow',
@@ -36,12 +40,12 @@ class ManagerController extends Controller
     public function actionIndex(){
 
         $this->render('index', array('main'=>'ffjwflbfiqbhiwebfhjbehkjbfhi'));
+
     }
 
     public function actionOrders(){
 
         $this->render('index', array('main'=>'ffjwflbfiqbhiwebfhjbehkjbfhi'));
-
 
     }
 
